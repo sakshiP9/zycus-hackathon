@@ -1,0 +1,20 @@
+# Node / Vite (frontend)
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+frontend/.env.local
+
+# Java / Spring Boot (backend)
+backend/target/
+backend/*.class
+backend/.mvn/
+!backend/.mvn/wrapper/maven-wrapper.jar
+
+# IDE
+.vscode/
+.idea/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
