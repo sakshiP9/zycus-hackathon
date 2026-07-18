@@ -12,13 +12,16 @@ public class SecurityConfig {
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
         http
-                .csrf(csrf -> csrf
-                        .ignoringRequestMatchers("/h2-console/**")
-                )
+                .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/h2-console/**").permitAll()
                         .requestMatchers("/api/health/**").permitAll()
                         .requestMatchers("/actuator/health/**").permitAll()
+                        .requestMatchers("/order/**").permitAll()
+                        .requestMatchers("/order/*/suggest").permitAll()
+                        .requestMatchers("/agents/**").permitAll()
+                        .requestMatchers("/config/**").permitAll()
+                        .requestMatchers("/suggestions/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .headers(headers -> headers
